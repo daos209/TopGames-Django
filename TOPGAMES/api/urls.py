@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', UserLoginAPIView.as_view(), name='api_login'),
     path('paypal/execute/', PayPalExecuteAPIView.as_view(), name='api_paypal_execute'),
+    path('games/', views.GameList.as_view(), name='game-list'),  # Por ejemplo, para listar juegos
+    path('games/<int:id>/', views.GameDetail.as_view(), name='game-detail'),  # Para detallar un juego específico
+    # Puedes agregar más rutas según sea necesario
 ]
-
-
