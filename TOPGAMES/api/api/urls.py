@@ -16,15 +16,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-<<<<<<<<< Temporary merge branch 1
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
-=========
-from django.urls import path
-from .views import UserLoginAPIView, PayPalExecuteAPIView
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +23,4 @@ urlpatterns = [
     path('paypal/execute/', PayPalExecuteAPIView.as_view(), name='api_paypal_execute'),
 ]
 
->>>>>>>>> Temporary merge branch 2
+
