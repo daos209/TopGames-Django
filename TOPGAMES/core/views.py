@@ -2,12 +2,27 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-
-# core/views.py
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from .serializers import PagoSerializer
+from django.shortcuts import render
+
+
+def pago_exitoso(request):
+    # Suponiendo que ya tienes los datos necesarios
+    transaction_id = "12345"  # Ejemplo de ID de transacción
+    amount = "50.00"  # Ejemplo de monto
+    currency = "USD"  # Ejemplo de moneda
+    transaction_date = "2024-10-05"  # Ejemplo de fecha
+
+    return render(request, 'pago_exitoso.html', {
+        'transaction_id': transaction_id,
+        'amount': amount,
+        'currency': currency,
+        'transaction_date': transaction_date
+    })
+
 
 class PagoAPIView(APIView):
     def post(self, request, *args, **kwargs):

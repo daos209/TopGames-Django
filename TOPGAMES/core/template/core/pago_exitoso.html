@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Exitoso</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  <!-- Vincula tu CSS -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pago Exitoso</h1>
+        </header>
+        <main>
+            <section>
+                <h2>¡Gracias por tu pago!</h2>
+                <p>Tu pago ha sido procesado exitosamente. A continuación, se detallan los datos de tu transacción:</p>
+                
+                <ul>
+                    <li><strong>ID de Transacción:</strong> {{ transaction_id }}</li>
+                    <li><strong>Monto:</strong> {{ amount }} {{ currency }}</li>
+                    <li><strong>Fecha:</strong> {{ transaction_date }}</li>
+                </ul>
+
+                <p>Si tienes alguna duda, no dudes en contactar con nuestro servicio de atención al cliente.</p>
+            </section>
+        </main>
+        <footer>
+            <a href="{% url 'core:index' %}" class="btn">Volver a la página principal</a>  <!-- Cambia 'core:index' según tu configuración de URL -->
+        </footer>
+    </div>
+</body>
+</html>
